@@ -1,51 +1,39 @@
-function calcularValorImpressao() {
-  var tempo = parseFloat(document.getElementById("tempo-impressao").value);
-  var gramas = parseFloat(document.getElementById("gramas-utilizadas").value);
-  var valorFilamento = parseFloat(document.getElementById("valor-filamento").value);
+function calculatePrintCost() {
+  var printTime = parseFloat(document.getElementById("print-time").value);
+  var filamentUsage = parseFloat(document.getElementById("filament-usage").value);
+  var filamentCost = parseFloat(document.getElementById("filament-cost").value);
 
-  if (isNaN(tempo) || isNaN(gramas) || isNaN(valorFilamento)) {
-    document.getElementById("resultado-impressao").innerHTML = "Preencha todos os campos corretamente.";
+  if (isNaN(printTime) || isNaN(filamentUsage) || isNaN(filamentCost)) {
+    document.getElementById("print-cost-result").innerHTML = "Por favor, preencha todos os campos corretamente.";
     return;
   }
 
-  var valorImpressao = (tempo * 0.1 + gramas * 0.01) * valorFilamento;
-
-  document.getElementById("resultado-impressao").innerHTML = "Valor da Impressão: R$ " + valorImpressao.toFixed(2);
-
-  if (document.getElementById("kwh-utilizado").value !== "") {
-    calcularValorTotal();
-  }
+  var printCost = printTime * filamentUsage * filamentCost;
+  document.getElementById("print-cost-result").innerHTML = "Valor da Impressão: R$ " + printCost.toFixed(2);
 }
 
-function calcularValorEnergia() {
-  var valorConta = parseFloat(document.getElementById("valor-conta-luz").value);
-  var kwhUtilizado = parseFloat(document.getElementById("kwh-utilizado").value);
+function calculateEnergyCost() {
+  var energyCost = parseFloat(document.getElementById("energy-cost").value);
+  var energyUsage = parseFloat(document.getElementById("energy-usage").value);
 
-  if (isNaN(valorConta) || isNaN(kwhUtilizado)) {
-    document.getElementById("resultado-energia").innerHTML = "Preencha todos os campos corretamente.";
+  if (isNaN(energyCost) || isNaN(energyUsage)) {
+    document.getElementById("energy-cost-result").innerHTML = "Por favor, preencha todos os campos corretamente.";
     return;
   }
 
-  var valorKwh = valorConta / kwhUtilizado;
-
-  document.getElementById("resultado-energia").innerHTML = "Valor do kWh: R$ " + valorKwh.toFixed(2);
-
-  if (document.getElementById("tempo-impressao").value !== "" && document.getElementById("gramas-utilizadas").value !== "" && document.getElementById("valor-filamento").value !== "") {
-    calcularValorTotal();
-  }
+  var energyCostResult = energyCost * energyUsage;
+  document.getElementById("energy-cost-result").innerHTML = "Custo da Energia: R$ " + energyCostResult.toFixed(2);
 }
 
-function calcularValorTotal() {
-  var valorImpressao = parseFloat(document.getElementById("resultado-impressao").textContent.split("R$ ")[1]);
-  var valorKwh = parseFloat(document.getElementById("resultado-energia").textContent.split("R$ ")[1]);
-  var horasImpressao = parseFloat(document.getElementById("horas-impressao").value);
+function calculatePrinterConsumption() {
+  var printerPower = parseFloat(document.getElementById("printer-power").value);
+  var printerUsageTime = parseFloat(document.getElementById("printer-usage-time").value);
 
-  if (isNaN(valorImpressao) || isNaN(valorKwh) || isNaN(horasImpressao)) {
-    document.getElementById("resultado-total").innerHTML = "Preencha todos os campos corretamente.";
+  if (isNaN(printerPower) || isNaN(printerUsageTime)) {
+    document.getElementById("printer-consumption-result").innerHTML = "Por favor, preencha todos os campos corretamente.";
     return;
   }
 
-  var valorCobrado = valorImpressao + (valorKwh * horasImpressao * 4);
-
-  document.getElementById("resultado-total").innerHTML = "Valor Total: <strong>R$ " + valorCobrado.toFixed(2) + "</strong>";
+  var printerConsumption = printerPower * printerUsageTime;
+  document.getElementById("printer-consumption-result").innerHTML = "Consumo da Impressora: " + printerConsumption.toFixed(2) + " Watts";
 }
