@@ -13,18 +13,21 @@ h1, h2 {
 /* Calculadora principal */
 .calculator-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
+  align-items: flex-start;
   padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .main-calculator {
-  width: 90%;
-  max-width: 500px;
+  width: 60%;
+  max-width: 600px;
   background-color: #ffffff;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin-right: 20px;
 }
 
 .main-calculator h2 {
@@ -65,49 +68,28 @@ button {
 
 /* Calculadoras laterais */
 .side-calculators {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20px;
-}
-
-.energy-calculator, .printer-usage {
-  width: 90%;
-  max-width: 500px;
+  width: 40%;
+  max-width: 400px;
   background-color: #ffffff;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
 }
 
-.energy-calculator h2, .printer-usage h2 {
+.side-calculators h2 {
   text-align: center;
+  margin-bottom: 20px;
 }
 
 /* Estilos para telas menores */
 @media screen and (max-width: 768px) {
   .calculator-container {
-    align-items: stretch;
+    flex-direction: column;
+    align-items: center;
   }
 
-  .main-calculator {
-    width: 100%;
-  }
-
-  .side-calculators {
-    align-items: stretch;
-  }
-
-  .energy-calculator, .printer-usage {
-    width: 100%;
-    margin-bottom: 20px;
-    margin-left: 0;
-  }
-  
-  input[type="number"],
-  button {
-    width: 100%;
-    max-width: 300px;
+  .main-calculator, .side-calculators {
+    width: 90%;
+    margin: 0 0 20px;
   }
 }
