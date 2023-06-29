@@ -1,66 +1,73 @@
 body {
-  background-color: #222;
-  color: #fff;
+  background-color: #f2f2f2;
   font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-h1 {
-  text-align: center;
-  color: #00f;
-}
-
-.calculadora {
+.container {
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-.calculadora-item {
-  flex-basis: 33.33%;
-  margin: 10px;
-  padding: 20px;
-  background-color: #444;
+.calculator {
+  background-color: #ffffff;
   border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 400px;
 }
 
-h2 {
+.calculator h2 {
+  color: #333333;
+  font-size: 24px;
+  margin-bottom: 20px;
   text-align: center;
-  color: #f00;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-label {
-  color: #fff;
-}
-
-input[type="number"] {
-  padding: 5px;
-  border-radius: 5px;
-  border: none;
-}
-
-button {
+.calculator input[type="number"],
+.calculator input[type="text"] {
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+  margin-bottom: 10px;
   padding: 10px;
+  width: 100%;
+}
+
+.calculator button {
+  background-color: #007bff;
   border: none;
-  background-color: #00f;
-  color: #fff;
+  border-radius: 4px;
+  color: #ffffff;
   cursor: pointer;
+  font-size: 16px;
+  padding: 10px;
+  width: 100%;
 }
 
-button:hover {
-  background-color: #0077ff;
+.calculator button:hover {
+  background-color: #0056b3;
 }
 
-#resultadoValorImpressao,
-#resultadoValorEnergia,
-#resultadoGastoEnergiaImpressora {
+.result {
+  background-color: #e9e9e9;
+  border-radius: 4px;
   margin-top: 20px;
   padding: 10px;
-  background-color: #009933;
-  border-radius: 5px;
-  font-weight: bold;
+  text-align: center;
+}
+
+.result p {
+  color: #333333;
+  font-size: 18px;
+  margin: 0;
+}
+
+.result strong {
+  color: #007bff;
+  font-size: 24px;
 }
