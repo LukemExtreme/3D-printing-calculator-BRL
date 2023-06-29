@@ -92,7 +92,7 @@ button {
   }
 
   .main-calculator {
-    width: 90%;
+    width: 100%;
   }
 
   .side-calculators {
@@ -100,8 +100,14 @@ button {
   }
 
   .energy-calculator, .printer-usage {
-    width: 90%;
+    width: 100%;
     margin-bottom: 20px;
     margin-left: 0;
+  }
+  
+  input[type="number"],
+  button {
+    width: 100%;
+    max-width: 300px;
   }
 }
