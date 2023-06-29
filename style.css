@@ -1,0 +1,66 @@
+body {
+  background-color: #222;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  color: #00f;
+}
+
+.calculadora {
+  display: flex;
+  justify-content: center;
+}
+
+.calculadora-item {
+  flex-basis: 33.33%;
+  margin: 10px;
+  padding: 20px;
+  background-color: #444;
+  border-radius: 10px;
+}
+
+h2 {
+  text-align: center;
+  color: #f00;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+label {
+  color: #fff;
+}
+
+input[type="number"] {
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  background-color: #00f;
+  color: #fff;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0077ff;
+}
+
+#resultadoValorImpressao,
+#resultadoValorEnergia,
+#resultadoGastoEnergiaImpressora {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #009933;
+  border-radius: 5px;
+  font-weight: bold;
+}

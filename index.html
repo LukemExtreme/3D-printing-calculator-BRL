@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculadora de Impressão 3D</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <h1>Calculadora de Impressão 3D</h1>
+
+  <div class="calculadora">
+    <div class="calculadora-item">
+      <h2>Valor da Impressão</h2>
+      <form>
+        <label for="tempoImpressao">Tempo de Impressão (horas):</label>
+        <input type="number" id="tempoImpressao">
+
+        <label for="gramasFilamento">Gramas de Filamento:</label>
+        <input type="number" id="gramasFilamento">
+
+        <label for="valorFilamento">Valor do Filamento (R$/kg):</label>
+        <input type="number" id="valorFilamento">
+
+        <button type="button" onclick="calcularValorImpressao()">Calcular</button>
+      </form>
+
+      <div id="resultadoValorImpressao"></div>
+    </div>
+
+    <div class="calculadora-item">
+      <h2>Calculadora de Energia</h2>
+      <form>
+        <label for="valorContaLuz">Valor da Conta de Luz (R$):</label>
+        <input type="number" id="valorContaLuz">
+
+        <label for="consumoKwh">Consumo de kWh:</label>
+        <input type="number" id="consumoKwh">
+
+        <button type="button" onclick="calcularValorEnergia()">Calcular</button>
+      </form>
+
+      <div id="resultadoValorEnergia"></div>
+    </div>
+
+    <div class="calculadora-item">
+      <h2>Gasto de Energia da Impressora</h2>
+      <form>
+        <label for="consumoKwhImpressora">Consumo de kWh da Impressora (por hora):</label>
+        <input type="number" id="consumoKwhImpressora">
+
+        <button type="button" onclick="calcularGastoEnergiaImpressora()">Calcular</button>
+      </form>
+
+      <div id="resultadoGastoEnergiaImpressora"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
