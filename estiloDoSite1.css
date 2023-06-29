@@ -13,13 +13,14 @@ h1, h2 {
 /* Calculadora principal */
 .calculator-container {
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
   padding: 20px;
 }
 
 .main-calculator {
-  width: 50%;
+  width: 90%;
+  max-width: 500px;
   background-color: #ffffff;
   padding: 20px;
   border-radius: 8px;
@@ -71,7 +72,8 @@ button {
 }
 
 .energy-calculator, .printer-usage {
-  width: 30%;
+  width: 90%;
+  max-width: 400px;
   background-color: #ffffff;
   padding: 20px;
   border-radius: 8px;
@@ -84,22 +86,24 @@ button {
 }
 
 /* Estilos para telas menores */
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) {
   .calculator-container {
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
   }
 
   .main-calculator {
-    width: 90%;
+    width: 50%;
   }
 
   .side-calculators {
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
   }
 
   .energy-calculator, .printer-usage {
-    width: 90%;
+    width: 30%;
+    margin-bottom: 0;
+    margin-left: 20px;
   }
 }
