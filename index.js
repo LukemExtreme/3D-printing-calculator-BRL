@@ -1,44 +1,51 @@
 function calcularValorImpressao() {
-  const tempoImpressao = parseFloat(document.getElementById("tempoImpressao").value);
-  const gramasFilamento = parseFloat(document.getElementById("gramasFilamento").value);
-  const valorFilamento = parseFloat(document.getElementById("valorFilamento").value);
+  var tempo = parseFloat(document.getElementById("tempo-impressao").value);
+  var gramas = parseFloat(document.getElementById("gramas-utilizadas").value);
+  var valorFilamento = parseFloat(document.getElementById("valor-filamento").value);
 
-  if (isNaN(tempoImpressao) || isNaN(gramasFilamento) || isNaN(valorFilamento)) {
-    document.getElementById("resultadoValorImpressao").innerHTML = "Por favor, preencha todos os campos.";
+  if (isNaN(tempo) || isNaN(gramas) || isNaN(valorFilamento)) {
+    document.getElementById("resultado-impressao").innerHTML = "Preencha todos os campos corretamente.";
     return;
   }
 
-  const valorImpressao = (tempoImpressao * gramasFilamento * valorFilamento) / 1000;
+  var valorImpressao = (tempo * 0.1 + gramas * 0.01) * valorFilamento;
 
-  document.getElementById("resultadoValorImpressao").innerHTML = `Valor da Impressão: R$ ${valorImpressao.toFixed(2)}`;
+  document.getElementById("resultado-impressao").innerHTML = "Valor da Impressão: R$ " + valorImpressao.toFixed(2);
+
+  if (document.getElementById("kwh-utilizado").value !== "") {
+    calcularValorTotal();
+  }
 }
 
 function calcularValorEnergia() {
-  const valorContaLuz = parseFloat(document.getElementById("valorContaLuz").value);
-  const consumoKwh = parseFloat(document.getElementById("consumoKwh").value);
+  var valorConta = parseFloat(document.getElementById("valor-conta-luz").value);
+  var kwhUtilizado = parseFloat(document.getElementById("kwh-utilizado").value);
 
-  if (isNaN(valorContaLuz) || isNaN(consumoKwh)) {
-    document.getElementById("resultadoValorEnergia").innerHTML = "Por favor, preencha todos os campos.";
+  if (isNaN(valorConta) || isNaN(kwhUtilizado)) {
+    document.getElementById("resultado-energia").innerHTML = "Preencha todos os campos corretamente.";
     return;
   }
 
-  const valorKwh = valorContaLuz / consumoKwh;
+  var valorKwh = valorConta / kwhUtilizado;
 
-  document.getElementById("resultadoValorEnergia").innerHTML = `Valor do kWh (R$/kWh): ${valorKwh.toFixed(2)}`;
+  document.getElementById("resultado-energia").innerHTML = "Valor do kWh: R$ " + valorKwh.toFixed(2);
+
+  if (document.getElementById("tempo-impressao").value !== "" && document.getElementById("gramas-utilizadas").value !== "" && document.getElementById("valor-filamento").value !== "") {
+    calcularValorTotal();
+  }
 }
 
-function calcularGastoEnergiaImpressora() {
-  const consumoKwhImpressora = parseFloat(document.getElementById("consumoKwhImpressora").value);
+function calcularValorTotal() {
+  var valorImpressao = parseFloat(document.getElementById("resultado-impressao").textContent.split("R$ ")[1]);
+  var valorKwh = parseFloat(document.getElementById("resultado-energia").textContent.split("R$ ")[1]);
+  var horasImpressao = parseFloat(document.getElementById("horas-impressao").value);
 
-  if (isNaN(consumoKwhImpressora)) {
-    document.getElementById("resultadoGastoEnergiaImpressora").innerHTML = "Por favor, preencha o campo.";
+  if (isNaN(valorImpressao) || isNaN(valorKwh) || isNaN(horasImpressao)) {
+    document.getElementById("resultado-total").innerHTML = "Preencha todos os campos corretamente.";
     return;
   }
 
-  const horasImpressao = parseFloat(document.getElementById("tempoImpressao").value) || 0;
-  const valorKwh = parseFloat(document.getElementById("resultadoValorEnergia").innerHTML.split(":")[1]);
+  var valorCobrado = valorImpressao + (valorKwh * horasImpressao * 4);
 
-  const gastoEnergiaImpressora = consumoKwhImpressora * horasImpressao * valorKwh;
-
-  document.getElementById("resultadoGastoEnergiaImpressora").innerHTML = `Gasto de Energia da Impressora: R$ ${gastoEnergiaImpressora.toFixed(2)}`;
+  document.getElementById("resultado-total").innerHTML = "Valor Total: <strong>R$ " + valorCobrado.toFixed(2) + "</strong>";
 }
