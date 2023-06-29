@@ -88,7 +88,7 @@ button {
 /* Estilos para telas menores */
 @media screen and (max-width: 768px) {
   .calculator-container {
-    align-items: flex-start;
+    align-items: stretch;
   }
 
   .main-calculator {
@@ -96,7 +96,7 @@ button {
   }
 
   .side-calculators {
-    align-items: center;
+    align-items: stretch;
   }
 
   .energy-calculator, .printer-usage {
