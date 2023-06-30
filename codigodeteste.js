@@ -45,7 +45,7 @@ function calcularValorTotal() {
     return;
   }
 
-  var valorCobrado = valorImpressao + (valorKwh * horasImpressao * 4);
+  var valorCobrado = valorImpressao + (valorKwh + horasImpressao * 3);
 
   document.getElementById("resultado-total").innerHTML = "Valor Total: <strong>R$ " + valorCobrado.toFixed(2) + "</strong>";
 }

@@ -12,18 +12,18 @@
       <h2>Calculadora de Valor da Impressão</h2>
       <div class="input-container">
         <label for="print-time">Tempo de Impressão (horas):</label>
-        <input type="number" id="tempo-impressao">
+        <input type="number" id="print-time">
       </div>
       <div class="input-container">
         <label for="filament-usage">Uso de Filamento (gramas):</label>
-        <input type="number" id="gramas-utilizadas">
+        <input type="number" id="filament-usage">
       </div>
       <div class="input-container">
         <label for="filament-cost">Custo do Filamento (R$/grama):</label>
-        <input type="number" id="valor-filamento">
+        <input type="number" id="filament-cost">
       </div>
-      <button type="button" onclick="calcularValorImpressao()">Calcular</button>
-      <div class="result" id="resultado-impressao"></div>
+      <button type="button" onclick="calculatePrintCost()">Calcular</button>
+      <div class="result" id="print-cost-result"></div>
     </div>
 
     <div class="side-calculators">
@@ -31,29 +31,35 @@
         <h2>Calculadora de Energia</h2>
         <div class="input-container">
           <label for="energy-cost">Custo da Energia (R$/kWh):</label>
-          <input type="number" id="valor-conta-luz">
+          <input type="number" id="energy-cost">
         </div>
         <div class="input-container">
           <label for="energy-usage">Consumo de Energia (kWh):</label>
-          <input type="number" id="kwh-utilizado">
+          <input type="number" id="energy-usage">
         </div>
-        <button type="button" onclick="calcularValorEnergia()">Calcular</button>
-        <div class="result" id="resultado-energia"></div>
+        <button type="button" onclick="calculateEnergyCost()">Calcular</button>
+        <div class="result" id="energy-cost-result"></div>
       </div>
 
       <div class="printer-usage">
         <h2>Consumo da Impressora</h2>
         <div class="input-container">
           <label for="printer-power">Potência da Impressora (W):</label>
-          <input type="number" id="potencia-impressora">
+          <input type="number" id="printer-power">
         </div>
         <div class="input-container">
           <label for="printer-usage-time">Tempo de Uso (horas):</label>
-          <input type="number" id="horas-impressao">
+          <input type="number" id="printer-usage-time">
         </div>
-        <button type="button" onclick="calcularValorTotal()">Calcular</button>
-        <div class="result" id="resultado-total"></div>
+        <button type="button" onclick="calculatePrinterConsumption()">Calcular</button>
+        <div class="result" id="printer-consumption-result"></div>
       </div>
+    </div>
+
+    <div class="total-cost">
+      <h2>Custo Total</h2>
+      <button type="button" onclick="calculateTotalCost()">Calcular Custo Total</button>
+      <div class="result" id="total-cost-result"></div>
     </div>
   </div>
 
