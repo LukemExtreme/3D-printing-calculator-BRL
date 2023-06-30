@@ -8,7 +8,7 @@ function calculatePrintCost() {
     return;
   }
 
-  var printCost = printTime + filamentUsage + filamentCost;
+  var printCost = filamentUsage * filamentCost;
   document.getElementById("print-cost-result").innerHTML = "Valor da Impressão: R$ " + printCost.toFixed(2);
 
   if (document.getElementById("energy-cost").value !== "" && document.getElementById("energy-usage").value !== "") {
@@ -25,8 +25,8 @@ function calculateEnergyCost() {
     return;
   }
 
-  var energyCostResult = energyCost * energyUsage;
-  document.getElementById("energy-cost-result").innerHTML = "Custo da Energia: R$ " + energyCostResult.toFixed(2);
+  var kWhCost = energyCost / energyUsage;
+  document.getElementById("kwh-cost-result").innerHTML = "Valor do kWh: R$ " + kWhCost.toFixed(2);
 
   if (document.getElementById("print-time").value !== "" && document.getElementById("filament-usage").value !== "" && document.getElementById("filament-cost").value !== "") {
     calculateTotalCost();
@@ -42,8 +42,8 @@ function calculatePrinterConsumption() {
     return;
   }
 
-  var printerConsumption = printerPower * printerUsageTime;
-  document.getElementById("printer-consumption-result").innerHTML = "Consumo da Impressora: " + printerConsumption.toFixed(2) + " Watts";
+  var printerConsumption = (printerPower / 60) * printerUsageTime;
+  document.getElementById("printer-consumption-result").innerHTML = "Consumo da Impressora: " + printerConsumption.toFixed(2) + " kWh";
 }
 
 function calculateTotalCost() {
