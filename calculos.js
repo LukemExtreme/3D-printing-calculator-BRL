@@ -8,7 +8,7 @@ function calculatePrintCost() {
     return;
   }
 
-  var printCost = printTime * filamentUsage * filamentCost;
+  var printCost = printTime + filamentUsage + filamentCost;
   document.getElementById("print-cost-result").innerHTML = "Valor da Impressão: R$ " + printCost.toFixed(2);
 
   if (document.getElementById("energy-cost").value !== "" && document.getElementById("energy-usage").value !== "") {
